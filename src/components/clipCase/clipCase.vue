@@ -10,7 +10,7 @@
         <div class="minBox left-down" ref="leftDown" @mousedown="moveLeftDownActive" v-show="_isShow"></div>
         <div class="minBox down" ref="down" @mousedown="moveDownActive" v-show="_isShow"></div>
         <div class="minBox right-down" ref="rightDown" @mousedown="moveRightDownActive" v-show="_isShow"></div>
-        <div class="rotate" ref="rotate" @mousedown="moveRotateActive" v-show="rotate || _isShow"></div>
+        <div class="rotate" ref="rotate" @mousedown="moveRotateActive" v-show="_isShow"></div>
 
         <!-- 剪切框内容 -->
         <div class="content">
@@ -24,27 +24,31 @@ import interact from 'interactjs'
 export default {
     name: 'clipCase',
     props: {
-        _width: {
-            default: '150px'
-        },
-        _height: {
-            default: '150px'
-        },
-        _top: {
-            default: '50px'
-        },
-        _left: {
-            default: '50px'
-        },
-        _rotate: {
-            default: false
-        },
-        _path: {
-            default: String
-        },
-        _isShow: {
-            default: true
-        },
+        _width: String,
+        _height:String,
+        _top: String,
+        _left: String,
+        _isShow: Boolean,
+
+        // _width: {
+        //     default: '150px'
+        // },
+        // _height: {
+        //     default: '150px'
+        // },
+        // _top: {
+        //     default: '500px'
+        // },
+        // _left: {
+        //     default: '50px'
+        // },
+        // _rotate: {
+        //     default: false
+        // },
+        _path: String,
+        // _isShow: {
+        //     default: true
+        // },
         _id: Number,
         _item: Object
     },
@@ -54,7 +58,7 @@ export default {
             height: this._height,
             top: this._top,
             left: this._left,
-            rotate: this._rotate,
+            // rotate: this._rotate,
             path: this._path,
             show: this._isShow,
             coverageId: this._id,
@@ -464,21 +468,32 @@ export default {
     },
 
     created(){
-        console.log(this.item)
+        // console.log(this.item)
     },
 
     watch: {
-        'width': function(){
+        '_width': function(val){
+            this.width = val
             // this.saveData()
         },
-        'height': function(){
+        '_height': function(val){
+            this.height = val
             // this.saveData()
         },
-        'top': function(){
+        '_top': function(val){
+            this.top = val
             // this.saveData()
         },
-        'left': function(){
+        '_left': function(val){
+            this.left = val
             // this.saveData()
+        },
+        '_path': function(val){
+            this.path = val
+            // this.saveData()
+        },
+        '_isShow': function(val){
+            this.isShow = val
         }
     }
 }

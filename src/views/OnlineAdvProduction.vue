@@ -35,7 +35,7 @@
                         :_width="item.width"
                         :_height="item.height"
                         :_id="item.id" 
-                        :_path="item.img" 
+                        :_path="item.img"   
                         :_top="item.top"
                         :_left="item.left"
                         :_isShow="item.show"
@@ -322,7 +322,8 @@ export default {
             // 图层列表
             coverageList: [
                 // {text: '', backgroundImg: '', img: ''}
-            ]
+            ],
+            _coverageList: []
         }
     },
 
